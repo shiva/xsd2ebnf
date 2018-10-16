@@ -1,0 +1,84 @@
+<?xml version="1.0"?>
+<schema xmlns="http://www.w3.org/1999/XMLSchema"
+    targetNamespace="urn:schemas-gov:SpaceSurveillance"
+    xmlns:ss="urn:schemas-gov:SpaceSurveillance"
+    elementFormDefault="qualified"
+    attributeFormDefault="qualified"
+    version="1.0">
+<!-- Space Surveillance Namespace Global
+Attribute Declarations and Type Definitions
+**************
+*** File name:  SpaceSurvGlobals.xsd ***
+**************
+*** As of:  October 6, 2000
+**************
+      -->
+<complexType name = "dateTimeType">
+    <annotation>
+        <documentation>Definition of a Date and Time element group.
+            Format of Date is: CCYY-MM-DD
+            Format of Time is: hh:mm:ss.sss
+        </documentation>
+    </annotation>
+    <element name = "Date" type="date"/>
+    <element name = "Time" type="time"/>
+</complexType>
+<attributeGroup name = "classification">
+    <attribute name = "classLevel" type = "ss:classificationLevelType"
+        use="required"/>
+    <attribute name = "dissemination" type = "ss:disseminationType"
+        use="optional"/>
+    <attribute name = "classificationGuide" type = "string"
+        use="optional"/>
+</attributeGroup>
+<simpleType name = "classificationLevelType" base = "string">
+    <annotation>
+        <documentation>Classification Level enumerated values.
+            Legal values are:
+            "Unclassified" "U"
+            "Secret" "S"
+            "Secret Talent-Keyhole" "S//TK"
+            "TopSecret" "TS"
+            "TopSecret Talent-Keyhole" "TS//TK"
+            "Confidential" "C"
+            "Proprietary" "PROP"
+            "For Official Use Only" "FOUO"
+        </documentation>
+    </annotation>
+    <enumeration value = "Unclassified"/>
+    <enumeration value = "U"/>
+    <enumeration value = "Secret"/>
+    <enumeration value = "S"/>
+    <enumeration value = "Secret Talent-Keyhole"/>
+    <enumeration value = "S//TK"/>
+    <enumeration value = "TopSecret"/>
+    <enumeration value = "TS"/>
+    <enumeration value = "TopSecret Talent-Keyhole"/>
+    <enumeration value = "TS//TK"/>
+    <enumeration value = "Confidential"/>
+    <enumeration value = "C"/>
+    <enumeration value = "Proprietary"/>
+    <enumeration value = "PROP"/>
+    <enumeration value = "For Official Use Only"/>
+    <enumeration value = "FOUO"/>
+</simpleType>
+<simpleType name = "disseminationType" base = "string">
+    <annotation>
+        <documentation>Dissemination control marking used to limit the
+            distribution of classified information.  This is an
+            enumerated list.
+            Legal values are:
+            "Releasable"
+            "ORCON"  (Originator controlled)
+            "RELCAN" (Releasable to Canada)
+            "NOFORN" (Not releasable to Foreign Nationals)
+            "PROPIN" (Caution-Proprietary Information Involved)
+        </documentation>
+    </annotation>
+    <enumeration value = "Releasable"/>
+    <enumeration value = "ORCON"/>
+    <enumeration value = "RELCAN"/>
+    <enumeration value = "NOFORN"/>
+    <enumeration value = "PROPIN"/>
+</simpleType>
+</schema>

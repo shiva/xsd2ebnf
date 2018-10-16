@@ -1,0 +1,252 @@
+<?xml version="1.0"?>
+<SpaceSurveillanceData  xmlns="urn:schemas-gov:SpaceSurveillance"
+    xmlns:xsi="http://www.w3.org/1999/XMLSchema-instance"
+    xsi:schemaLocation=
+    "urn:schemas-gov:SpaceSurveillance
+    SpaceSurveillance.xsd">
+    <SensorTask>
+        <TaskedSensor sensor="354" classLevel="U">
+            <Controls classLevel="U">
+                <TaskCreation>
+                    <Date>2000-09-20</Date>
+                    <Time>20:10:10.10</Time>
+                </TaskCreation>
+                <TaskValidPeriod>
+                    <ValidStart>
+                        <Date>2000-09-21</Date>
+                        <Time>00:00:00</Time>
+                    </ValidStart>
+                    <ValidEnd>
+                        <Date>2000-09-21</Date>
+                        <Time>23:59:59</Time>
+                    </ValidEnd>
+                </TaskValidPeriod>
+                <AssumedDownTime>
+                    <DownTimeStart>
+                        <Date>2000-09-21</Date>
+                        <Time>12:00:00</Time>
+                    </DownTimeStart>
+                    <DownTimeEnd>
+                        <Date>2000-09-21</Date>
+                        <Time>15:00:00</Time>
+                    </DownTimeEnd>
+                </AssumedDownTime>
+                <AssumedDownTime>
+                    <DownTimeStart>
+                        <Date>2000-09-21</Date>
+                        <Time>17:00:00</Time>
+                    </DownTimeStart>
+                    <DownTimeEnd>
+                        <Date>2000-09-21</Date>
+                        <Time>19:00:00</Time>
+                    </DownTimeEnd>
+                </AssumedDownTime>
+                <TaskCapacity>1000</TaskCapacity>
+            </Controls>
+            <TaskDaily classLevel="U">
+                <Category priority="2" code="B">
+                    <Satno>10362</Satno><Satno>14693</Satno>
+                    <Satno>20399</Satno><Satno>23049</Satno>
+                    <Satno>23210</Satno><Satno>23817</Satno>
+                    <Satno>23941</Satno><Satno>26468</Satno>
+                    <Satno>26478</Satno><Satno>88258</Satno>
+                </Category>
+                <Category priority="2" code="C">
+                    <Satno>1328</Satno><Satno>7646</Satno>
+                    <Satno>16908</Satno><Satno>22076</Satno>
+                    <Satno>22824</Satno><Satno>25398</Satno>
+                </Category>
+                <Category priority="2" code="D">
+                    <Satno>16609</Satno><Satno>20436</Satno>
+                    <Satno>23342</Satno><Satno>23501</Satno>
+                    <Satno>23549</Satno><Satno>23605</Satno>
+                    <Satno>25063</Satno><Satno>25394</Satno>
+                    <Satno>25544</Satno><Satno>25674</Satno>
+                    <Satno>25860</Satno><Satno>25977</Satno>
+                    <Satno>25978</Satno><Satno>26032</Satno>
+                    <Satno>26040</Satno><Satno>26105</Satno>
+                    <Satno>26354</Satno>
+                </Category>
+                <Category priority="2" code="K">
+                    <Satno>23125</Satno><Satno>23126</Satno>
+                    <Satno>25938</Satno>
+                </Category>
+                <Category priority="2" code="O">
+                    <Satno>13736</Satno><Satno>18123</Satno>
+                    <Satno>20978</Satno><Satno>21798</Satno>
+                    <Satno>23233</Satno><Satno>23533</Satno>
+                    <Satno>24753</Satno><Satno>25991</Satno>
+                </Category>
+                <Category priority="3" code="D">
+                    <Satno>21987</Satno><Satno>22521</Satno>
+                    <Satno>22659</Satno><Satno>23757</Satno>
+                    <Satno>23857</Satno><Satno>23954</Satno>
+                    <Satno>24743</Satno><Satno>24779</Satno>
+                    <Satno>25064</Satno><Satno>25424</Satno>
+                    <Satno>25504</Satno><Satno>25616</Satno>
+                    <Satno>25722</Satno><Satno>25791</Satno>
+                </Category>
+                <Category priority="3" code="F">
+                    <Satno>12497</Satno><Satno>86724</Satno>
+                    <Satno>86860</Satno>
+                </Category>
+                <Category priority="3" code="G">
+                    <Satno>21223</Satno><Satno>22997</Satno>
+                </Category>
+                <Category priority="3" code="J">
+                    <Satno>2144</Satno><Satno>3597</Satno>
+                    <Satno>3598</Satno><Satno>6153</Satno>
+                    <Satno>6155</Satno><Satno>20453</Satno>
+                    <Satno>24323</Satno>
+                </Category>
+                <Category priority="3" code="K">
+                    <Satno>25023</Satno><Satno>25024</Satno>
+                    <Satno>25025</Satno>
+                </Category>
+            </TaskDaily>
+            <TaskingMetrics classLevel="U">
+                <PercentOfMaxTracks>50.0</PercentOfMaxTracks>
+                <PercentOfNetworkLoad>5.5</PercentOfNetworkLoad>
+                <PercentResponseToTasking>66.7</PercentResponseToTasking>
+            </TaskingMetrics>
+        </TaskedSensor>
+        <TaskedSensor sensor="344" classLevel="U">
+            <TaskUpdate classLevel="U">
+                <Category priority="1" code="T">
+                    <Satno>12547</Satno><Satno>26105</Satno>
+                </Category>
+                <Category priority="2" code="B">
+                    <Satno>10362</Satno><Satno>14693</Satno>
+                    <Satno>22067</Satno><Satno>23049</Satno>
+                    <Satno>23210</Satno><Satno>23291</Satno>
+                    <Satno>23817</Satno><Satno>23941</Satno>
+                    <Satno>24032</Satno><Satno>25552</Satno>
+                    <Satno>26468</Satno><Satno>26478</Satno>
+                    <Satno>81739</Satno><Satno>86620</Satno>
+                    <Satno>86721</Satno><Satno>88258</Satno>
+                </Category>
+                <Category priority="2" code="C">
+                    <Satno>16908</Satno><Satno>18963</Satno>
+                    <Satno>22076</Satno><Satno>22824</Satno>
+                    <Satno>24646</Satno><Satno>25398</Satno>
+                    <Satno>81447</Satno><Satno>81538</Satno>
+                    <Satno>81622</Satno><Satno>87248</Satno>
+                </Category>
+                <Category priority="2" code="D">
+                    <Satno>16609</Satno><Satno>20436</Satno>
+                    <Satno>23342</Satno><Satno>23501</Satno>
+                    <Satno>23549</Satno><Satno>23605</Satno>
+                    <Satno>25394</Satno><Satno>25544</Satno>
+                    <Satno>25674</Satno><Satno>25860</Satno>
+                    <Satno>25977</Satno><Satno>25978</Satno>
+                    <Satno>26032</Satno><Satno>26040</Satno>
+                    <Satno>26354</Satno>
+                </Category>
+                <Category priority="2" code="M">
+                    <Satno>86751</Satno>
+                </Category>
+                <Category priority="2" code="P">
+                    <Satno>7646</Satno><Satno>13736</Satno>
+                    <Satno>18123</Satno><Satno>20978</Satno>
+                    <Satno>21798</Satno><Satno>23233</Satno>
+                    <Satno>23533</Satno><Satno>24753</Satno>
+                    <Satno>25991</Satno>
+                </Category>
+                <Category priority="3" code="C">
+                    <Satno>831</Satno><Satno>7004</Satno>
+                    <Satno>24286</Satno><Satno>25942</Satno>
+                    <Satno>81640</Satno>
+                </Category>
+                <Category priority="3" code="D">
+                    <Satno>4166</Satno><Satno>19822</Satno>
+                    <Satno>20826</Satno><Satno>21430</Satno>
+                    <Satno>21574</Satno><Satno>21575</Satno>
+                    <Satno>21725</Satno><Satno>21840</Satno>
+                    <Satno>21867</Satno><Satno>22077</Satno>
+                    <Satno>22161</Satno><Satno>22782</Satno>
+                    <Satno>22825</Satno><Satno>22970</Satno>
+                    <Satno>23189</Satno><Satno>23317</Satno>
+                    <Satno>23323</Satno><Satno>23547</Satno>
+                    <Satno>23657</Satno><Satno>23752</Satno>
+                    <Satno>23851</Satno><Satno>23940</Satno>
+                    <Satno>24883</Satno><Satno>24920</Satno>
+                    <Satno>24925</Satno><Satno>24926</Satno>
+                    <Satno>25233</Satno><Satno>25395</Satno>
+                    <Satno>25396</Satno><Satno>25397</Satno>
+                    <Satno>25468</Satno><Satno>25560</Satno>
+                    <Satno>25568</Satno><Satno>25634</Satno>
+                    <Satno>25646</Satno><Satno>25730</Satno>
+                    <Satno>25731</Satno><Satno>25735</Satno>
+                    <Satno>25758</Satno><Satno>26033</Satno>
+                    <Satno>26061</Satno><Satno>26065</Satno>
+                    <Satno>81412</Satno><Satno>81453</Satno>
+                    <Satno>81454</Satno><Satno>81466</Satno>
+                    <Satno>81471</Satno><Satno>81481</Satno>
+                    <Satno>81491</Satno><Satno>81537</Satno>
+                    <Satno>81583</Satno><Satno>81627</Satno>
+                    <Satno>81631</Satno><Satno>81645</Satno>
+                    <Satno>81660</Satno><Satno>81721</Satno>
+                    <Satno>81732</Satno><Satno>81772</Satno>
+                    <Satno>81780</Satno><Satno>81827</Satno>
+                    <Satno>81833</Satno><Satno>81859</Satno>
+                    <Satno>81885</Satno><Satno>81889</Satno>
+                    <Satno>81902</Satno><Satno>81931</Satno>
+                    <Satno>81954</Satno><Satno>81974</Satno>
+                    <Satno>81976</Satno>
+                </Category>
+                <Category priority="3" code="H">
+                    <Satno>3758</Satno><Satno>18807</Satno>
+                    <Satno>81449</Satno><Satno>81542</Satno>
+                    <Satno>81695</Satno><Satno>81729</Satno>
+                    <Satno>81791</Satno><Satno>81884</Satno>
+                    <Satno>81981</Satno><Satno>81986</Satno>
+                </Category>
+                <Category priority="3" code="M">
+                    <Satno>899</Satno><Satno>10395</Satno>
+                    <Satno>10705</Satno><Satno>12529</Satno>
+                    <Satno>12854</Satno><Satno>13507</Satno>
+                    <Satno>14475</Satno><Satno>15354</Satno>
+                    <Satno>15538</Satno><Satno>18591</Satno>
+                    <Satno>18745</Satno><Satno>20030</Satno>
+                    <Satno>21570</Satno><Satno>21701</Satno>
+                    <Satno>21936</Satno><Satno>21997</Satno>
+                    <Satno>22384</Satno><Satno>22465</Satno>
+                    <Satno>23821</Satno><Satno>23841</Satno>
+                    <Satno>25467</Satno><Satno>25469</Satno>
+                    <Satno>26252</Satno><Satno>81413</Satno>
+                    <Satno>81427</Satno><Satno>81431</Satno>
+                    <Satno>81439</Satno><Satno>81470</Satno>
+                    <Satno>81474</Satno><Satno>81479</Satno>
+                    <Satno>81483</Satno><Satno>81505</Satno>
+                    <Satno>81508</Satno><Satno>81512</Satno>
+                    <Satno>81522</Satno><Satno>81529</Satno>
+                    <Satno>81530</Satno><Satno>81546</Satno>
+                    <Satno>81547</Satno><Satno>81548</Satno>
+                    <Satno>81572</Satno><Satno>81582</Satno>
+                    <Satno>81609</Satno><Satno>81612</Satno>
+                    <Satno>81618</Satno><Satno>81619</Satno>
+                    <Satno>81647</Satno><Satno>81665</Satno>
+                    <Satno>81679</Satno><Satno>81711</Satno>
+                    <Satno>81716</Satno><Satno>81782</Satno>
+                    <Satno>81784</Satno><Satno>81792</Satno>
+                    <Satno>81816</Satno><Satno>81817</Satno>
+                    <Satno>81821</Satno><Satno>81836</Satno>
+                    <Satno>81844</Satno><Satno>81847</Satno>
+                    <Satno>81848</Satno><Satno>81852</Satno>
+                    <Satno>81856</Satno><Satno>81865</Satno>
+                    <Satno>81886</Satno><Satno>81909</Satno>
+                    <Satno>81932</Satno><Satno>81950</Satno>
+                    <Satno>81967</Satno><Satno>81968</Satno>
+                    <Satno>81969</Satno><Satno>81973</Satno>
+                    <Satno>81980</Satno><Satno>81993</Satno>
+                    <Satno>85069</Satno>
+                </Category>
+                <Category priority="3" code="P">
+                    <Satno>21829</Satno><Satno>25018</Satno>
+                    <Satno>81876</Satno><Satno>86724</Satno>
+                    <Satno>86860</Satno>
+                </Category>
+            </TaskUpdate>
+        </TaskedSensor>
+    </SensorTask>
+</SpaceSurveillanceData>

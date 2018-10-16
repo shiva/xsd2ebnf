@@ -1,0 +1,245 @@
+<?xml version="1.0"?>
+<SpaceSurveillanceData  xmlns="urn:schemas-gov:SpaceSurveillance"
+    xmlns:xsi="http://www.w3.org/1999/XMLSchema-instance"
+    xsi:schemaLocation=
+    "urn:schemas-gov:SpaceSurveillance
+    SpaceSurveillance.xsd">
+    <Satellite satelliteNumber="17940">
+        <InternationalDesignator classLevel="U">
+            <LaunchYear>1987</LaunchYear>
+            <LaunchNumber>39</LaunchNumber>
+            <PieceIdentifier>A</PieceIdentifier>
+        </InternationalDesignator>
+        <CommonName classLevel="U" source="TASS">COSMOS
+            1843</CommonName>
+        <Owner classLevel="U">CIS</Owner>
+        <SatelliteObject classLevel="FOUO">
+            <PayloadObject>
+                <PayloadType>Scientific</PayloadType>
+                <SatelliteStatus classLevel="U">Decayed</SatelliteStatus>
+                <SatelliteMission classLevel="Unclassified"
+                    source="TASS">
+                    <PrimaryMission>Scientific</PrimaryMission>
+                </SatelliteMission>
+            </PayloadObject>
+        </SatelliteObject>
+        <LaunchData classLevel="U">
+            <LaunchDate>1987-05-05</LaunchDate>
+            <LaunchTime>08:30:27</LaunchTime>
+            <LaunchSite>TTMTR</LaunchSite>
+            <LaunchingAgency>CIS</LaunchingAgency>
+        </LaunchData>
+        <DecayDate>1987-05-19</DecayDate>
+    </Satellite>
+    <Satellite satelliteNumber="11622">
+        <InternationalDesignator classLevel="U">
+            <LaunchYear>1979</LaunchYear>
+            <LaunchNumber>98</LaunchNumber>
+            <PieceIdentifier>B</PieceIdentifier>
+        </InternationalDesignator>
+        <CommonName classLevel="U" source="AFSPC">OPS 9434 (DSCSII-
+            14)</CommonName>
+        <Owner classLevel="U">USAF</Owner>
+        <SatelliteObject classLevel="FOUO">
+            <PayloadObject>
+                <PayloadType>communications</PayloadType>
+                <SatelliteStatus classLevel="U">Active</SatelliteStatus>
+                <SatelliteMission classLevel="Unclassified"
+                    source="USAF">
+                    <PrimaryMission>USAF communications</PrimaryMission>
+                </SatelliteMission>
+            </PayloadObject>
+        </SatelliteObject>
+        <LaunchData classLevel="U">
+            <LaunchDate>1979-11-21</LaunchDate>
+            <LaunchTime>08:30:27</LaunchTime>
+            <LaunchSite>AFETR</LaunchSite>
+            <LaunchingAgency>USAF</LaunchingAgency>
+        </LaunchData>
+        <DecayDate></DecayDate>
+    </Satellite>
+    <Sensor classLevel="Unclassified" dissemination="Releasable">
+        <SensorNumber>0399</SensorNumber>
+        <SensorName classLevel="U">Eglin</SensorName>
+        <SensorShortName>EGL</SensorShortName>
+        <SensorMission classLevel="Unclassified">
+            <PrimaryMission classLevel="Unclassified">SSN</PrimaryMission>
+            <SecondaryMission classLevel="Unclassified">Test</SecondaryMission>
+        </SensorMission>
+        <SensorLocation classLevel="Unclassified"
+            dateUpdated="1999-03-02"
+            source="GPS">
+            <Latitude units="degrees" precision="double" hemisphere="N">30.5
+            </Latitude>
+            <Longitude units="degrees" precision="float" hemisphere="E">273.7
+            </Longitude>
+            <Altitude units="meters">17.0</Altitude>
+        </SensorLocation>
+        <OwningCountry>USA</OwningCountry>
+        <Device>
+            <DeviceNumber>399</DeviceNumber>
+            <DeviceName>Eglin Near-Earth Phased Array Radar</DeviceName>
+            <DeviceType>PhasedArray</DeviceType>
+            <DeviceLocation classLevel="U">
+                <Latitude units="degrees" precision="double" hemisphere="N">
+                    30.654321</Latitude>
+                <Longitude units="degrees" precision="float" hemisphere="W">
+                    273.7654321</Longitude>
+                <Altitude units="meters">17.6543210</Altitude>
+            </DeviceLocation>
+        </Device>
+        <Device>
+            <DeviceNumber>398</DeviceNumber>
+            <DeviceName>Eglin Deep-Space Phased Array Radar</DeviceName>
+            <DeviceType>PhasedArray</DeviceType>
+            <DeviceLocation classLevel="U">
+                <Latitude units="degrees" precision="double" hemisphere="N">
+                    30.654321</Latitude>
+                <Longitude units="degrees" precision="float" hemisphere="W">
+                    273.7654321</Longitude>
+                <Altitude units="meters">17.6543210</Altitude>
+            </DeviceLocation>
+        </Device>
+    </Sensor>
+    <Sensor classLevel="Unclassified" dissemination="Releasable">
+        <SensorNumber>0354</SensorNumber>
+        <SensorName classLevel="U">Ascension</SensorName>
+        <SensorShortName>ASC</SensorShortName>
+        <SensorMission classLevel="Unclassified">
+            <PrimaryMission classLevel="Unclassified">NASA AFETR Support
+            </PrimaryMission>
+            <SecondaryMission classLevel="Unclassified">SSN</SecondaryMission>
+        </SensorMission>
+        <SensorLocation classLevel="Unclassified" dateUpdated="1999-03-02"
+            source="GPS">
+            <Latitude units="degrees" precision="double" hemisphere="S">
+                7.9</Latitude>
+            <Longitude units="degrees" precision="float" hemisphere="E">
+                345.5</Longitude>
+            <Altitude units="meters">30.0</Altitude>
+        </SensorLocation>
+        <OwningCountry>USA</OwningCountry>
+        <Device>
+            <DeviceNumber>354</DeviceNumber>
+            <DeviceName>Ascension Primary Tracker</DeviceName>
+            <DeviceType>MechanicalRadar</DeviceType>
+            <DeviceLocation classLevel="U">
+                <Latitude units="degrees" precision="double" hemisphere="N">
+                    -7.987654321</Latitude>
+                <Longitude units="degrees" precision="float" hemisphere="W">
+                    345.54321</Longitude>
+                <Altitude units="meters">31.098765</Altitude>
+            </DeviceLocation>
+        </Device>
+        <Device>
+            <DeviceNumber>355</DeviceNumber>
+            <DeviceName>Ascension Secondary Tracker</DeviceName>
+            <DeviceType>MechanicalRadar</DeviceType>
+            <DeviceLocation classLevel="U">
+                <Latitude units="degrees" precision="double" hemisphere="N">
+                    -7.980654321</Latitude>
+                <Longitude units="degrees" precision="float" hemisphere="W">
+                    345.54021</Longitude>
+                <Altitude units="meters">37.1234560</Altitude>
+            </DeviceLocation>
+        </Device>
+    </Sensor>
+    <SatObservation classLevel="Unclassified">
+        <ObType>
+            <ObType1>
+                <Elevation units="degrees">68.90</Elevation>
+                <Azimuth units="degrees">90.78</Azimuth>
+            </ObType1>
+        </ObType>
+        <SensorNumber>741</SensorNumber>
+        <SatelliteNumber>12345</SatelliteNumber>
+        <ObDate>2000-03-02</ObDate>
+        <ObTime>12:10:25.345</ObTime>
+        <OriginalTag>12345</OriginalTag>
+        <CCTag>99999</CCTag>
+    </SatObservation>
+    <SatObservation classLevel="Unclassified">
+        <ObType>
+            <ObType4>
+                <Elevation units="degrees">68.90</Elevation>
+                <Azimuth units="degrees">90.78</Azimuth>
+                <Range units="meters">1245.78</Range>
+                <RangeRate units="metersPerSecond">345.678903</RangeRate>
+                <AzimuthRate units="degreesPerSecond">2.7834564</AzimuthRate>
+                <ElevationRate units="degreesPerSecond">0.0345678</ElevationRate>
+            </ObType4>
+        </ObType>
+        <SensorNumber>388</SensorNumber>
+        <SatelliteNumber>1122</SatelliteNumber>
+        <ObDate>2000-03-02</ObDate>
+        <ObTime>22:21:05.350</ObTime>
+        <OriginalTag>90023</OriginalTag>
+        <CCTag>1122</CCTag>
+    </SatObservation>
+    <SatObservation classLevel="Unclassified">
+        <ObType>
+            <ObType5>
+                <RtAscension units="degrees">184.787654321</RtAscension>
+                <Declination units="degrees">78.787654321</Declination>
+            </ObType5>
+        </ObType>
+        <SensorNumber>245</SensorNumber>
+        <SatelliteNumber>23357</SatelliteNumber>
+        <ObDate>2000-03-02</ObDate>
+        <ObTime>22:21:02.100</ObTime>
+        <OriginalTag>10000</OriginalTag>
+        <CCTag>23357</CCTag>
+    </SatObservation>
+    <SatelliteElementSet>
+        <SatelliteNumber>19557</SatelliteNumber>
+        <InternationalDesignator classLevel="U">
+            <LaunchYear>1988</LaunchYear>
+            <LaunchNumber>92</LaunchNumber>
+            <PieceIdentifier>D</PieceIdentifier>
+        </InternationalDesignator>
+        <OrbitalElements classLevel="Unclassified">
+            <ElementNumber>0007</ElementNumber>
+            <Epoch>
+                <Date>2000-09-14</Date>
+                <Time>23:10:15.522</Time>
+            </Epoch>
+            <NDot>-0.0000045</NDot>
+            <NDotDot>0.0</NDotDot>
+            <BStar>.00010000</BStar>
+            <EphemerisType>SGP</EphemerisType>
+            <Inclination>67.636987</Inclination>
+            <RtAscension>258.4641</RtAscension>
+            <Eccentricity>.5412831</Eccentricity>
+            <ArgPerigee>274.0424</ArgPerigee>
+            <MeanAnomoly>028.9720</MeanAnomoly>
+            <MeanMotion theoryUsed="Kozai">2.04126354</MeanMotion>
+            <EpochRevolution>8807</EpochRevolution>
+        </OrbitalElements>
+    </SatelliteElementSet>
+    <SatelliteElementSet>
+        <SatelliteNumber>24841</SatelliteNumber>
+        <InternationalDesignator classLevel="U">
+            <LaunchYear>1988</LaunchYear>
+            <LaunchNumber>30</LaunchNumber>
+            <PieceIdentifier>F</PieceIdentifier>
+        </InternationalDesignator>
+        <OrbitalElements classLevel="Unclassified">
+            <ElementNumber>0416</ElementNumber>
+            <Epoch>
+                <Date>2000-09-14</Date>
+                <Time>22:04:25.534</Time>
+            </Epoch>
+            <NDot>-0.00001042</NDot>
+            <NDotDot>0.0</NDotDot>
+            <BStar>.00036485</BStar>
+            <EphemerisType>SGP</EphemerisType>
+            <Inclination>86.3956</Inclination>
+            <RtAscension>47.8360</RtAscension>
+            <Eccentricity>.000238131</Eccentricity>
+            <ArgPerigee>76.8442424</ArgPerigee>
+            <MeanAnomoly>283.301720</MeanAnomoly>
+            <MeanMotion theoryUsed="Kozai">14.24227259</MeanMotion>
+            <EpochRevolution>16284</EpochRevolution>
+        </OrbitalElements>
+    </SatelliteElementSet>
+</SpaceSurveillanceData>

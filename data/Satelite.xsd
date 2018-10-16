@@ -1,0 +1,198 @@
+<?xml version ="1.0"?>
+<schema targetNamespace = "urn:schemas-gov:SpaceSurveillance"
+    elementFormDefault="qualified"
+    xmlns:ss="urn:schemas-gov:SpaceSurveillance"
+    xmlns = "http://www.w3.org/1999/XMLSchema"
+    version="1.0">
+    <!--Schema for Satellite (from a Space Surveillance perspective)
+**************
+*** File name:  Satellite.xsd ***
+**************
+      -->
+<element name = "Satellite">
+    <complexType>
+        <annotation>
+            <documentation>Manmade space object.
+            </documentation>
+        </annotation>
+        <sequence>
+            <element ref = "ss:InternationalDesignator"/>
+            <element ref = "ss:CommonName"/>
+            <element ref = "ss:Owner"/>
+            <element ref = "ss:SatelliteObject"/>
+            <element ref = "ss:LaunchData"/>
+            <element ref = "ss:DecayDate"/>
+        </sequence>
+        <attribute name="satelliteNumber" type="ss:satelliteNumberType"
+            use="required"/>
+    </complexType>
+</element>
+<element name = "SatelliteNumber" type = "ss:satelliteNumberType">
+    <annotation>
+        <documentation>
+            Cataloged satellite numeric identifier assigned by
+            USSPACECOM.  </documentation>
+    </annotation>
+</element>
+<!-- In September 2000 version XML Schema specification, the equivClass has been
+renamed to substitutionGroup -->
+<element name="Satno" equivClass="ss:SatelliteNumber"
+    type="ss:satelliteNumberType">
+    <annotation>
+        <documentation>An equivalent name for SatelliteNumber.  The two
+            terms can be used interchangeably.  </documentation>
+    </annotation>
+</element>
+<element name = "InternationalDesignator">
+    <complexType content = "elementOnly">
+        <annotation>
+            <documentation>Internationally recognized designator for a
+                satellite.  Includes LaunchYear, LaunchNumber, and
+                PieceIdentifier.  Must be unclassified.
+            </documentation>
+        </annotation>
+        <sequence>
+            <element ref = "ss:LaunchYear"/>
+            <element ref = "ss:LaunchNumber"/>
+            OpenSource, Owner/Operator, Intelligence).
+        </documentation>
+    </annotation>
+</attribute>
+<attribute name = "lastUpdated" type = "date" use="optional">
+    <annotation>
+        <documentation>Date the payload status was last
+            updated. </documentation>
+    </annotation>
+</attribute>
+</complexType>
+</element>
+<element name = "SatelliteMission">
+    <complexType>
+        <sequence>
+            <element name="PrimaryMission" type="string"
+                minOccurs="1" maxOccurs="unbounded"/>
+            <element name="SecondaryMission"
+                minOccurs="0" maxOccurs="unbounded"/>
+        </sequence>
+        <attributeGroup ref = "ss:classification"/>
+        <attribute name="source" type="string" use="optional">
+            <annotation>
+                <documentation>Source for the mission information
+                    (e.g., OpenSource, Owner/Operator, Initial
+                    Launch Alert Message, Intelligence).
+                </documentation>
+            </annotation>
+        </attribute>
+    </complexType>
+</element>
+<!--
+**************
+*** Satellite Element Related Type Definitions ***
+**************
+      -->
+<simpleType name = "satelliteNumberType" base = "positiveInteger">
+    <annotation>
+        <documentation>
+            Cataloged satellite numeric identifier assigned by
+            USSPACECOM.  Must be unique and a positive integer no
+            more than 6 digits long.  (Note:  As of October 2000, the legal
+            range of values is 5 digits long.  Because we expect this
+            range will soon be exceeded, we are specifying a legal range
+            of 6 digits.
+        </documentation>
+    </annotation>
+    <maxInclusive value = "999999"/>
+</simpleType>
+<simpleType name = "satellitePieceIdentifierType" base = "string">
+    <annotation>
+        <documentation>Sequential piece identifier with range of values of
+            up to 3 alpha characters but not including
+            i or o or I or O</documentation>
+    </annotation>
+    <pattern value = "[a-h|j-n|p-z|A-H|J-N|P-Z]{1,3}"/>
+</simpleType>
+<simpleType name = "satCommonNameType" base = "string">
+    <annotation>
+        <documentation>Common name for the satellite (e.g., USA 148,
+            CSL-04 DEB, SL12 R/B(1)).  Name may be no more than
+            24 characters long.
+        </documentation>
+    </annotation>
+    <maxLength value = "24"/>
+</simpleType>
+<simpleType name = "satOwnerType" base = "string">
+    <annotation>
+        <documentation>Country or organization that owns
+            satellite.  String may be no more than 5 characters
+            long.  Examples include:
+            USX (United States)
+            CIS (Commonwealth of Independent States)
+            PRC (Peoples Republic of China)
+            ESA (European Space Agency)
+            GLOB (Globalstar)
+        </documentation>
+    </annotation>
+    <maxLength value = "5"/>
+</simpleType>
+<simpleType name = "satellitePayloadStatusType" base = "string">
+    <annotation>
+        <documentation>Status of satellite payload.  Must be one of
+            enumerated values of:
+            Active, Inactive, MissionEnded, or Dead.
+        </documentation>
+    </annotation>
+    <enumeration value = "Active"/>
+    <enumeration value = "Inactive"/>
+    <enumeration value = "MissionEnded"/>
+    <enumeration value = "Dead"/>
+</simpleType>
+<simpleType name = "satelliteObjectType" base = "string">
+    <annotation>
+        <documentation>Type of object.  Must be one of enumerated values
+            of: rocketBody, debris, platform, or unknown.
+        </documentation>
+    </annotation>
+    <enumeration value = "rocketBody"/>
+    <enumeration value = "debris"/>
+    <enumeration value = "platform"/>
+    <enumeration value = "unknown"/>
+</simpleType>
+<simpleType name = "satelliteLaunchSiteType" base = "string">
+    <annotation>
+        <documentation source="LaunchSiteDefinitions.doc">
+            Alphabetic string of no more than six characters indicating
+            launch site.  Must be one of satelliteLaunchSiteType's
+            enumerated values.  Definition of these abbreviations can be
+            found in the noted source file.
+        </documentation>
+    </annotation>
+    <enumeration value = "AFETR"/>
+    <enumeration value = "AFWTR"/>
+    <enumeration value = "ALA"/>
+    <enumeration value = "FRGUI"/>
+    <enumeration value = "HGSTR"/>
+    <enumeration value = "KSCUT"/>
+    <enumeration value = "KYMTR"/>
+    <enumeration value = "PKMTR"/>
+    <enumeration value = "SCTMR"/>
+    <enumeration value = "SNMLP "/>
+    <enumeration value = "SRI"/>
+    <enumeration value = "TNSTA"/>
+    <enumeration value = "TTMTR"/>
+    <enumeration value = "WOMRA"/>
+    <enumeration value = "WUZ"/>
+    <enumeration value = "XIC"/>
+    <enumeration value = "YAVNE"/>
+</simpleType>
+<!-- NOTE:  FILE WON'T VALIDATE IF THIS ATTRIBUTE GROUP IS MOVED
+TO THE GLOBALS FILE.  IT'S A BUG IN THE VALIDATOR.  -->
+<attributeGroup name = "classification">
+    <attribute name = "classLevel" type = "ss:classificationLevelType"
+        use="required"/>
+    <attribute name = "dissemination" type = "ss:disseminationType"
+        use="optional"/>
+    <attribute name = "classificationGuide" type = "string"
+        use="optional"/>
+</attributeGroup>
+</schema>
+

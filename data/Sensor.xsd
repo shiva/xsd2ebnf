@@ -1,0 +1,351 @@
+<?xml version ="1.0"?>
+<schema targetNamespace = "urn:schemas-gov:SpaceSurveillance"
+    elementFormDefault="qualified"
+    xmlns:ss="urn:schemas-gov:SpaceSurveillance"
+    xmlns = "http://www.w3.org/1999/XMLSchema"
+    version="1.0">
+<!--Schema for Sensor from a Space Surveillance perspective
+Presumes a ground-based sensor.  Should be extended to include
+other types of sensors.
+**************
+*** File name:  Sensor.xsd ***
+**************
+*** As of:  October 6, 2000
+**************
+      -->
+<element name = "Sensor">
+    <complexType content = "elementOnly">
+        <annotation>
+            <documentation>Sensor used to collect data.
+                For the preliminary space surveillance ontology, these
+                ground-based sensors are used to collect observations on
+                satellites.</documentation>
+        </annotation>
+        <sequence>
+            <element ref= "ss:SensorNumber"/>
+            <element ref= "ss:SensorName"/>
+            <element ref= "ss:SensorShortName"/>
+            <element ref= "ss:SensorMission"/>
+            <element ref= "ss:SensorLocation"/>
+            <element ref= "ss:OwningCountry"/>
+            <element ref= "ss:Device" minOccurs="1"
+                maxOccurs="unbounded"/>
+        </sequence>
+        <attributeGroup ref="ss:classification"/>
+    </complexType>
+</element>
+<element name = "SensorNumber" type = "ss:sensorNumberType">
+    <annotation>
+        <documentation>Unique identifier for the sensor complex.
+        </documentation>
+    </annotation>
+</element>
+<element name = "SensorName">
+    <complexType type = "string" content="textOnly">
+        <annotation>
+            <documentation>Name of the sensor; often referred to as
+                sensor long name.</documentation>
+        </annotation>
+        <attributeGroup ref="ss:classification"/>
+    </complexType>
+</element>
+<element name = "SensorShortName" type = "ss:sensorShortNameType">
+    <annotation>
+        <documentation>A 3-character abbreviation for the sensor name.
+        </documentation>
+    </annotation>
+</element>
+<element name = "SensorLocation" type = "ss:geodeticLocationType">
+    <annotation>
+        <documentation>General location of the sensor complex.
+            Not to be used for observation calculations.
+            (see DeviceLocation).
+        </documentation>
+    </annotation>
+</element>
+<element name = "OwningCountry" type = "string">
+    <annotation>
+        <documentation>Country that owns the sensor.</documentation>
+    </annotation>
+</element>
+<element name = "Device">
+    <complexType content = "elementOnly">
+        <annotation>
+            <documentation>Designation of a specific device at the
+                sensor location.  A sensor may have multiple
+                devices.</documentation>
+        </annotation>
+        <sequence>
+            <element ref= "ss:DeviceNumber"/>
+            <element ref= "ss:DeviceName"/>
+            <element ref= "ss:DeviceType"/>
+            <element ref= "ss:DeviceLocation"/>
+        </sequence>
+    </complexType>
+</element>
+<element name = "SensorMission">
+    <complexType content = "elementOnly">
+        <annotation>
+            <documentation>Mission of the sensor -- a container element
+                for the sensor primary, secondary, and tertiary
+                mission.</documentation>
+        </annotation>
+        <sequence>
+            <element ref= "ss:PrimaryMission"
+                minOccurs="1" maxOccurs="1"/>
+            <element ref= "ss:SecondaryMission"
+                minOccurs="0" maxOccurs="1"/>
+            <element ref= "ss:TertiaryMission"
+                minOccurs="0" maxOccurs="1"/>
+        </sequence>
+        <attributeGroup ref="ss:classification"/>
+    </complexType>
+</element>
+<element name = "PrimaryMission">
+    <complexType type = "ss:sensorMissionType" content="textOnly">
+        <annotation>
+            <documentation>Sensor's primary mission.
+                Must be one of sensorMissionType's
+                enumerated types.</documentation>
+        </annotation>
+        <attributeGroup ref="ss:classification"/>
+    </complexType>
+</element>
+<element name = "SecondaryMission">
+    <complexType type = "ss:sensorMissionType" content="textOnly">
+        <annotation>
+            <documentation>Sensor's secondary mission.
+                Must be one of sensorMissionType's
+                enumerated types.</documentation>
+        </annotation>
+        <attributeGroup ref="ss:classification"/>
+    </complexType>
+</element>
+<element name = "TertiaryMission">
+    <complexType type = "ss:sensorMissionType" content="textOnly">
+        <annotation>
+            <documentation>Sensor's tertiary mission.
+                Must be one of sensorMissionType's
+                enumerated types.</documentation>
+        </annotation>
+        <attributeGroup ref="ss:classification"/>
+    </complexType>
+</element>
+<element name = "DeviceNumber" type = "ss:sensorDeviceNumberType">
+    <annotation>
+        <documentation>Unique numeric identifier for specific device at the
+            sensor location.  May be no more than 3 digits in
+            length.</documentation>
+    </annotation>
+</element>
+<element name = "DeviceName" type = "string">
+    <annotation>
+        <documentation>Name given to a specific device at the sensor
+            location.</documentation>
+    </annotation>
+</element>
+<element name = "DeviceType" type = "ss:sensorDeviceType">
+    <annotation>
+        <documentation>Type of the device at the sensor location.
+            Must be one of sensorDeviceType's enumerated types.
+        </documentation>
+    </annotation>
+</element>
+<element name = "DeviceLocation" type = "ss:geodeticLocationType">
+    <annotation>
+        <documentation>Geodetic location of the specific device at the
+            sensor location.
+        </documentation>
+    </annotation>
+</element>
+<element name = "Latitude">
+    <complexType type="ss:latitudeType" content = "textOnly">
+        <annotation>
+            <documentation>The distance of a point on the earth's
+                surface from the equator.
+            </documentation>
+        </annotation>
+        <attribute name="units" use="fixed" value="degrees" type="string">
+            <annotation>
+                <documentation>Latitude units are measured in
+                    degrees.</documentation>
+            </annotation>
+        </attribute>
+        <attribute name="precision" type="ss:locationPrecisionType"
+            use="optional">
+            <annotation>
+                <documentation>Indicator of the precision provided.
+                </documentation>
+            </annotation>
+        </attribute>
+        <attribute name = "hemisphere">
+            <annotation>
+                <documentation>Designation of latitude's hemisphere
+                    as either N (North) or S (South)
+                </documentation>
+            </annotation>
+            <simpleType base = "string">
+                <enumeration value = "N"/>
+                <enumeration value = "S"/>
+            </simpleType>
+        </attribute>
+    </complexType>
+</element>
+<element name = "Longitude">
+    <complexType type="ss:longitudeType" content="textOnly">
+        <annotation>
+            <documentation>Distance on the earth's surface east or west
+                of the Greenwich meridian.</documentation>
+        </annotation>
+        <attribute name="units" use="fixed" value="degrees" type="string">
+            <annotation>
+                <documentation>Longitude units are measured in
+                    degrees.</documentation>
+            </annotation>
+        </attribute>
+        <attribute name="precision" type="ss:locationPrecisionType"
+            use="optional">
+            <annotation>
+                <documentation>Indicator of the precision provided.
+                </documentation>
+            </annotation>
+        </attribute>
+        <attribute name = "hemisphere">
+            <annotation>
+                <documentation>Designation of longitude's
+                    hemisphere as either W (West) or E (East)
+                </documentation>
+            </annotation>
+            <simpleType base = "string">
+                <enumeration value = "W"/>
+                <enumeration value = "E"/>
+            </simpleType>
+        </attribute>
+    </complexType>
+</element>
+<element name = "Altitude">
+    <complexType type="float" content = "textOnly">
+        <annotation>
+            <documentation>The vertical elevation of an object above
+                mean sea level measured in meters.</documentation>
+        </annotation>
+        <attribute name="units" use="fixed" value="meters" type="string">
+            <annotation>
+                <documentation>Altitude units are measured in meters
+                    above mean sea level. </documentation>
+            </annotation>
+        </attribute>
+        <attribute name="precision" type="ss:locationPrecisionType"
+            use="optional">
+            <annotation>
+                <documentation>Indicator of the precision provided.
+                </documentation>
+            </annotation>
+        </attribute>
+    </complexType>
+</element>
+<!--
+**************
+*** Sensor element related type definitions ***
+**************
+      -->
+<simpleType name = "sensorNumberType" base = "positiveInteger">
+    <annotation>
+        <documentation>Unique identifier for the sensor complex.
+            Must be an integer in the range 1-9999.
+        </documentation>
+    </annotation>
+    <maxInclusive value = "9999"/>
+</simpleType>
+<simpleType name = "sensorDeviceNumberType" base = "positiveInteger">
+    <annotation>
+        <documentation>Sensor Device Number must be an integer
+            with legal range of values 1-999.
+        </documentation>
+    </annotation>
+    <maxInclusive value = "999"/>
+</simpleType>
+<simpleType name = "sensorShortNameType" base = "string">
+    <annotation>
+        <documentation>Sensor short name -- a 3 character abbreviation for
+            the sensor name.
+        </documentation>
+    </annotation>
+    <pattern value = "[a-z|A-Z]?[a-z|A-Z]?[a-z|A-Z]"/>
+</simpleType>
+<simpleType name = "latitudeType" base = "float">
+    <annotation>
+        <documentation>Latitude must be in the range from 0.0-90.0
+        </documentation>
+    </annotation>
+    <minInclusive value = "0.0"/>
+    <maxInclusive value = "90.0"/>
+</simpleType>
+<simpleType name = "longitudeType" base = "float">
+    <annotation>
+        <documentation>Longitude must be in the range from 0.0-180.0
+        </documentation>
+    </annotation>
+    <minInclusive value = "0.0"/>
+    <maxInclusive value = "180.0"/>
+</simpleType>
+<simpleType name = "sensorMissionType" base = "string">
+    <annotation>
+        <documentation>Sensor Mission Type enumerated values.
+            Legal values are:
+            "AFSCN" (Air Force Satellite Control Network)
+            "Intelligence"
+            "MissileWarning"
+            "SSN"  (Space Surveillance Network)
+        </documentation>
+    </annotation>
+    <enumeration value = "AFSCN"/>
+    <enumeration value = "Intelligence"/>
+    <enumeration value = "MissileWarning"/>
+    <enumeration value = "SSN"/>
+</simpleType>
+<simpleType name = "sensorDeviceType" base = "string">
+    <annotation>
+        <documentation>Sensor Device Type enumerated values.
+            Legal values are:
+            "PhasedArray"
+            "MechanicalRadar"
+            "Optical"
+            "Fence"
+            "Laser"
+        </documentation>
+    </annotation>
+    <enumeration value = "PhasedArray"/>
+    <enumeration value = "MechanicalRadar"/>
+    <enumeration value = "Optical"/>
+    <enumeration value = "Fence"/>
+    <enumeration value = "Laser"/>
+</simpleType>
+<simpleType name = "locationPrecisionType" base = "string">
+    <annotation>
+        <documentation>Indicator of the precision provided:
+            values may be "float" or "double"
+            Placeholder until determine how to characterize.
+        </documentation>
+    </annotation>
+    <enumeration value = "float"/>
+    <enumeration value = "double"/>
+</simpleType>
+<complexType name = "geodeticLocationType">
+    <annotation>
+        <documentation>Location in a geodetic reference frame with latitude
+            and longitude measured in degrees and altitude measured in
+            meters above sea level. </documentation>
+    </annotation>
+    <element ref= "ss:Latitude"/>
+    <element ref= "ss:Longitude"/>
+    <element ref= "ss:Altitude"/>
+    <attributeGroup ref="ss:classification"/>
+    <attribute name = "dateUpdated" type = "date" use="optional">
+        <annotation>
+            <documentation>Date the sensor location was last updated.
+                Format is: CCYY-MM-DD </documentation>
+        </annotation>
+    </attribute>
+    <attribute name = "source" type = "string" use="optional">
+        <annotation>

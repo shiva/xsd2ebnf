@@ -1,0 +1,88 @@
+<?xml version="1.0"?>
+<schema xmlns="http://www.w3.org/1999/XMLSchema"
+    targetNamespace="urn:schemas-gov:SpaceSurveillance"
+    elementFormDefault="qualified"
+    xmlns:ss="urn:schemas-gov:SpaceSurveillance"
+    xmlns:xsi="http://www.w3.org/1999/XMLSchema-instance"
+    xsi:schemaLocation=
+    "http://www.w3.org/1999/XMLSchema
+    http://www.w3.org/1999/XMLSchema.xsd"
+    version="1.0">
+    <!--Schema for Space Surveillance Sets
+**************
+*** File name:  SpaceSurveillance.xsd ***
+**************
+*** As of:  October 6, 2000
+**************
+-->
+    <!--Conventions used:
+Element names begin with a capital letter
+Type and Attribute names begin with lowercase
+Make elements as atomic as possible
+Bias toward self-describing names over short, bandwidth conserving ones
+Collect global element/attribute declarations and global type definitions
+   in a separate subschema
+Include a documentation annotation in each element or attribute declaration
+   or type definition to define terms and provide explanatory information.
+ -->
+    <!-- include Space Surveillance Namespace global type and element definitions -->
+    <include schemaLocation = "SpaceSurvGlobals.xsd"/>
+<!--Include Space Surveillance Element Files -->
+    <include schemaLocation="Satellite.xsd"/>
+    <include schemaLocation="Sensor.xsd"/>
+    <include schemaLocation="SensorTasking.xsd"/>
+    <include schemaLocation="SatObservation.xsd"/>
+    <include schemaLocation="SatElset.xsd"/>
+    <element name = "SpaceSurveillanceData">
+        <complexType>
+            <annotation>
+                <documentation>
+                    A container for space surveillance elements.
+                    Major object relationships.
+                    - Satellite and SatelliteElementSet data are used
+                    to generate sensor tasking.
+                    - Sensors receive SatelliteElementSets and
+                    SensorTasks and collect SatObservations
+                    - SensorTasks describe to the Sensor the priority and
+                    amount of data to collect on each Satellite.
+                    - SatObservations are used to update
+                    SatelliteElementSets.
+                    - SatelliteElementSets are sent to Sensors to locate
+                    objects in space.
+                    Uniqueness - Satellite Element:
+                    Specified so that the satelliteNumber
+                    attribute must contain a unique value across
+                    all instances of the Satellite element that
+                    appear as children of a particular space
+                    surveillance data element.
+                    Uniqueness - Sensor:
+                    Specified so that the value of SensorNumber
+                    must be unique across all the instances of
+                    the Sensor element that appear as children
+                    of a particular space surveillance data
+                    element.
+                </documentation>
+            </annotation>
+            <sequence>
+                <element ref = "ss:Satellite"
+                    minOccurs = "0" maxOccurs = "unbounded"/>
+                <element ref = "ss:Sensor"
+                    minOccurs= "0" maxOccurs = "unbounded"/>
+                <element ref = "ss:SensorTask"
+                    minOccurs= "0" maxOccurs = "unbounded"/>
+                <element ref = "ss:SatObservation"
+                    minOccurs= "0" maxOccurs = "unbounded"/>
+                <element ref = "ss:SatelliteElementSet"
+                    minOccurs= "0" maxOccurs = "unbounded"/>
+            </sequence>
+        </complexType>
+        <unique name="satelliteUnique">
+            <selector>SSData/Satellite</selector>
+            <field>@satelliteNumber</field>
+        </unique>
+        <unique name="sensorUnique">
+            <selector>SSData/Sensor</selector>
+            <field>SensorNumber</field>
+        </unique>
+    </element>
+</schema>

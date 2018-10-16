@@ -1,0 +1,289 @@
+<?xml version ="1.0"?>
+<schema xmlns = "http://www.w3.org/1999/XMLSchema"
+    targetNamespace = "urn:schemas-gov:SpaceSurveillance"
+    elementFormDefault = "qualified"
+    xmlns:ss = "urn:schemas-gov:SpaceSurveillance"
+    version="1.0">
+    <!--Schema for Satellite Observation by a ground-based sensor
+**************
+*** File name:  SatObservation.xsd ***
+**************
+*** As of:  October 6, 2000
+**************
+Reference: [AFSPCI 60-102] Air Force Space Command (AFSPC) Astrodynamic
+Standards, AFSPC Instruction 60-102, 11 March 1996.
+      -->
+<element name = "SatObservation">
+    <annotation>
+        <documentation>Observation of a satellite by a ground-based sensor
+        </documentation>
+    </annotation>
+    <complexType content = "elementOnly">
+        <sequence>
+            <element ref = "ss:ObType"/>
+            <element ref = "ss:SensorNumber"/>
+            <element ref = "ss:SatelliteNumber"/>
+            <element ref = "ss:ObDate"/>
+            <element ref = "ss:ObTime"/>
+            <element ref = "ss:OriginalTag"/>
+            <element ref = "ss:CCTag"/>
+        </sequence>
+        <attributeGroup ref="ss:classification"/>
+    </complexType>
+</element>
+<element name = "ObType">
+    <annotation>
+        <documentation>Satellite Observation Types. Can be one of the
+            following types of elements:  ObType1, ObType2, ObType3,
+            ObType4, ObType5, ObType9</documentation>
+    </annotation>
+    <complexType content = "elementOnly">
+        <choice>
+            <element ref = "ss:ObType1"/>
+            <element ref = "ss:ObType2"/>
+            <element ref = "ss:ObType3"/>
+            <element ref = "ss:ObType4"/>
+            <element ref = "ss:ObType5"/>
+            <element ref = "ss:ObType9"/>
+        </choice>
+    </complexType>
+</element>
+<element name = "ObDate">
+    <complexType type = "date" content="textOnly">
+        <annotation>
+            <documentation>Date observation taken.
+                Format is: CCYY-MM-DD </documentation>
+        </annotation>
+    </complexType>
+</element>
+<element name = "ObTime">
+    <complexType type = "time" content="textOnly">
+        <annotation>
+            <documentation>Time observation taken.
+                Format is: hh:mm:ss.sss </documentation>
+        </annotation>
+    </complexType>
+</element>
+<element name = "ObType1" type = "ss:obType1Type"/>
+<element name = "ObType2" type = "ss:obType2Type"/>
+<element name = "ObType3" type = "ss:obType3Type"/>
+<element name = "ObType4" type = "ss:obType4Type"/>
+<element name = "ObType5" type = "ss:obType5Type"/>
+<element name = "ObType9" type = "ss:obType9Type"/>
+<complexType name = "obType1Type">
+    <annotation>
+        <documentation>Type 1 satellite observations include: Elevation and
+            Azimuth</documentation>
+    </annotation>
+    <sequence>
+        <element ref = "ss:Elevation"/>
+        <element ref = "ss:Azimuth"/>
+    </sequence>
+</complexType>
+<complexType name= "obType2Type" base="ss:obType1Type"
+    derivedBy="extension">
+    <annotation>
+        <documentation>Type 2 satellite observations include: Elevation,
+            Azimuth, and Range</documentation>
+    </annotation>
+    <sequence>
+        <element ref = "ss:Range"/>
+    </sequence>
+</complexType>
+<complexType name = "obType3Type" base="ss:obType2Type"
+    derivedBy="extension">
+    <annotation>
+        <documentation>Type 3 satellite observations include:
+            Elevation, Azimuth, Range, and RangeRate
+        </documentation>
+    </annotation>
+    <sequence>
+        <element ref = "ss:RangeRate"/>
+    </sequence>
+</complexType>
+<complexType name = "obType4Type" base="ss:obType3Type"
+    derivedBy="extension">
+    <annotation>
+        <documentation>Type 4 satellite observations include:
+            Elevation, Azimuth, Range, RangeRate,
+            AzimuthRate, and ElevationRate</documentation>
+    </annotation>
+    <sequence>
+        <element ref = "ss:AzimuthRate"/>
+        <element ref = "ss:ElevationRate"/>
+    </sequence>
+</complexType>
+<complexType name = "obType5Type">
+    <annotation>
+        <documentation>Type 5 satellite observations include:
+            RtAscension, and Declination</documentation>
+    </annotation>
+    <sequence>
+        <element ref = "ss:RtAscension"/>
+        <element ref = "ss:Declination"/>
+    </sequence>
+</complexType>
+<complexType name = "obType9Type" base = "ss:obType5Type"
+    derivedBy="extension">
+    <annotation>
+        <documentation>Type 9 satellite observations include:
+            RtAscension, Declination, and
+            SensorLocation described as an E,F,G position
+            vector of mobile sensor measured in meters)
+        </documentation>
+    </annotation>
+    <sequence>
+        <element ref = "ss:SensorLocationStateVector"/>
+    </sequence>
+</complexType>
+<element name = "Elevation">
+    <complexType type = "ss:elevationType" content="textOnly">
+        <annotation>
+            <documentation>The angular distance of a body above
+                or below the horizon measured along the great
+                circle passing through the body and the zenith.
+                [AFSPCI 60-102] Measurement units must be degrees.
+            </documentation>
+        </annotation>
+        <attribute name="units" type="string" use="fixed" value="degrees" />
+    </complexType>
+</element>
+<element name = "Azimuth">
+    <complexType type = "ss:azimuthRtAscensionType" content="textOnly">
+        <annotation>
+            <documentation>The angular distance measured clockwise
+                along the horizon on the celestial sphere.
+                [AFSPCI 60-102] Measurement units must be degrees.
+            </documentation>
+        </annotation>
+        <attribute name="units" type="string" use="fixed" value="degrees" />
+    </complexType>
+</element>
+<element name = "Range">
+    <complexType type = "double" content="textOnly">
+        <annotation>
+            <documentation>Distance from a sensor to a satellite.
+                [AFSPCI 60-102] Measurement units must be meters.
+            </documentation>
+        </annotation>
+        <attribute name="units" type="string" use="fixed" value="meters" />
+    </complexType>
+</element>
+<element name = "RangeRate">
+    <complexType type = "double" content="textOnly">
+        <annotation>
+            <documentation>Rate-of-change of the distance from a sensor
+                to a satellite.  [AFSPCI 60-102]
+                Measurement units must be metersPerSecond.
+            </documentation>
+        </annotation>
+        <attribute name="units" type="string" use="fixed"
+            value="metersPerSecond" />
+    </complexType>
+</element>
+<element name = "AzimuthRate">
+    <complexType type = "double" content="textOnly">
+        <annotation>
+            <documentation>Rate of change of the azimuth.
+                Measurement units must be degreesPerSecond.
+            </documentation>
+        </annotation>
+        <attribute name="units" type="string" use="fixed"
+            value="degreesPerSecond" />
+    </complexType>
+</element>
+<element name = "ElevationRate">
+    <complexType type = "double" content="textOnly">
+        <annotation>
+            <documentation>Rate of change of the elevation.
+                Measurement units must be degreesPerSecond.
+            </documentation>
+        </annotation>
+        <attribute name="units" type="string" use="fixed"
+            value="degreesPerSecond" />
+    </complexType>
+</element>
+<element name = "RtAscension">
+    <complexType type = "rtAscensionType" content="textOnly">
+        <annotation>
+            <documentation>The angle between the vernal equinox
+                and the projection of the radius vector on the equatorial
+                plane, regarded as positive when measured eastward
+                from the vernal equinox. [AFSPCI 60-102]
+                Measurement units must be degrees.
+            </documentation>
+        </annotation>
+        <attribute name="units" type="string" use="fixed" value="degrees" />
+    </complexType>
+</element>
+<element name = "Declination">
+    <complexType type = "declinationType" content="textOnly">
+        <annotation>
+            <documentation>The angle between the celestial equator and
+                a radius vector, regarded as positive when
+                measured north from the celestial equator.
+                [AFSPCI 60-102] Measurement units must be degrees.
+            </documentation>
+        </annotation>
+        <attribute name="units" type="string" use="fixed" value="degrees" />
+    </complexType>
+</element>
+<element name = "SensorLocationStateVector">
+    <complexType content = "elementOnly">
+        <annotation>
+            <documentation>A position vector describing the
+                instantaneous location of a mobile sensor in the
+                Earth-Fixed Geocentric (EFG) coordinate system.
+                Values are in meters and are epoched to the
+                observation's epoch.</documentation>
+        </annotation>
+        <sequence>
+            <element name = "E" type="integer"/>
+            <element name = "F" type="integer"/>
+            <element name = "G" type="integer"/>
+        </sequence>
+        <attribute name="units" type="string" use="fixed" value="meters" />
+    </complexType>
+</element>
+<element name = "OriginalTag" type = "ss:satelliteNumberType">
+    <annotation>
+        <documentation>Satellite Number that observation originally tagged
+            to correspond to by sensor.</documentation>
+    </annotation>
+</element>
+<element name = "CCTag" type = "ss:satelliteNumberType">
+    <annotation>
+        <documentation>Satellite Number observation tagged to by
+            correlation center</documentation>
+    </annotation>
+</element>
+<!--
+**************
+*** Satellite Observation Related Type Definitions ***
+**************
+      -->
+<simpleType name = "elevationType" base="double" derivedBy="restriction">
+    <annotation>
+        <documentation>Double precision elevation value with range
+            -90.0 to 90.0 degrees.  </documentation>
+    </annotation>
+    <minInclusive value = "-90.0"/>
+    <maxInclusive value = "90.0"/>
+</simpleType>
+<simpleType name = "declinationType" base="double" derivedBy="restriction">
+    <annotation>
+        <documentation>Double precision value with range 0.0 to 180.0
+            degrees.  </documentation>
+    </annotation>
+    <minInclusive value = "0.0"/>
+    <maxInclusive value = "180.0"/>
+</simpleType>
+<simpleType name = "aziumthRtAscensionType" base="double"
+    derivedBy="restriction">
+    <annotation>
+        <documentation>Double precision value with range 0.0 to 360.0
+            degrees. </documentation>
+    </annotation>
+    <minInclusive value = "0.0"/>
+    <maxInclusive value = "360.0"/>
+</simpleType>
